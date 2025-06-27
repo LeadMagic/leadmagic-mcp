@@ -52,6 +52,12 @@ import type {
   JobCountry,
   JobType,
 } from './types.js';
+import { z, ZodSchema } from 'zod';
+import {
+  CreditResponse,
+  ValidateEmailResponse,
+  FindEmailResponse,
+} from './types.js';
 
 /**
  * Custom error class for LeadMagic API errors

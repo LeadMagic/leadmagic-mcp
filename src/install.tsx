@@ -421,15 +421,19 @@ const ApiKeyInput: React.FC<{ onNext: (apiKey: string) => void, onBack: () => vo
     setError('');
     setCredits(null);
     try {
-      const client = new LeadMagicClient(key);
+      const client = new LeadMagicClient({ apiKey: key });
       const creditsData = await client.getCredits();
       setCredits(creditsData.credits);
       setTimeout(() => onNext(key), 1500); // Wait a moment so user can see credits
     } catch (err) {
-      if (err instanceof LeadMagicError && (err.isClientError())) {
-        setError('Invalid API Key. Please check the key and try again.');
+      if (err instanceof Error) {
+        let detailedMessage = `API Connection Error: ${err.message}.`;
+        if ('code' in err) {
+          detailedMessage += ` (Code: ${err.code})`;
+        }
+        setError(detailedMessage);
       } else {
-        setError(`Could not connect to the LeadMagic API. Please check your network connection.`);
+        setError(`An unknown error occurred while trying to connect to the LeadMagic API.`);
       }
     } finally {
       setIsValidating(false);
