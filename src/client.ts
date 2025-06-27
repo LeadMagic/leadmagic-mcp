@@ -1,4 +1,4 @@
-import axios, { AxiosInstance, AxiosResponse } from 'axios';
+import axios, { AxiosInstance, AxiosResponse, AxiosError } from 'axios';
 import type {
   LeadMagicConfig,
   EmailValidationRequest,
@@ -246,11 +246,31 @@ export class LeadMagicClient {
    * Generic method for custom API calls
    */
   async request<T = any>(method: string, endpoint: string, data?: any): Promise<T> {
-    const response = await this.client.request({
-      method,
-      url: endpoint,
-      data,
-    });
-    return response.data;
+    try {
+      const response = await this.client.request({
+        method,
+        url: endpoint,
+        data,
+      });
+      return response.data;
+         } catch (error: unknown) {
+       // Handle specific error types
+       if (axios.isAxiosError(error)) {
+         const axiosError = error as AxiosError<{ error?: string; message?: string }>;
+         const status = axiosError.response?.status || 500;
+         const errorData = axiosError.response?.data;
+         
+         throw new LeadMagicError(
+           status,
+           axiosError.code || 'REQUEST_FAILED',
+           errorData?.message || axiosError.message || 'Request failed',
+           errorData
+         );
+       }
+       
+       // Handle other errors
+       const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
+       throw new LeadMagicError(500, 'UNKNOWN_ERROR', errorMessage);
+     }
   }
 } 
