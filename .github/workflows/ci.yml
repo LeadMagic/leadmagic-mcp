@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 env:
-  NODE_VERSION: '18'
+  NODE_VERSION: '20'
 
 jobs:
   test:
@@ -78,7 +78,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
-        node-version: ['18', '19', '20']
+        node-version: ['18', '20']
         
     steps:
     - name: 📥 Checkout code

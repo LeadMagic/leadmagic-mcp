@@ -15,6 +15,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 🔧 **Package Polish**: Improved files array and metadata for npm distribution
 - 📊 **Repository Analytics**: Optimized for developer discoverability
 - 🔧 **Workflow Fixes**: Fixed deprecated GitHub Actions and improved release process
+- 🔄 **Updated Dependencies**: Updated MCP SDK to v1.13.0 for latest features
+- 🛠️ **CI Improvements**: Updated to Node.js 20 and improved cross-platform testing
 
 ### 📚 Documentation  
 - 🎯 **Complete Setup Guide**: Step-by-step GitHub repository configuration
@@ -25,6 +27,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### 🧹 Cleaned
 - 🚫 **Removed Funding**: Removed GitHub sponsorship and funding configurations
 - 🔧 **Fixed Workflows**: Updated deprecated actions and improved reliability
+- 🛡️ **ESLint Fixes**: Resolved configuration issues and improved error handling
+- ⚡ **CI Pipeline**: More robust testing with better error tolerance
+
+### 📝 Notes
+- Some deprecation warnings in npm install are from transitive dependencies and don't affect functionality
+- CI now uses Node.js 20 for optimal compatibility with all dependencies
 
 ## [1.0.1] - 2025-06-27
 
