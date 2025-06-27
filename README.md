@@ -55,108 +55,26 @@
 
 ### ⚡ Option 1: Interactive Installer (Recommended)
 
-The easiest way to get started - works on **macOS**, **Windows**, and **Linux**:
+The easiest way to get started - works on **macOS**, **Windows**, and **Linux**. Our new interactive installer, built with React and Ink, makes setup a breeze.
 
 ```bash
 # 🔥 Using npx (no installation required)
 npx leadmagic-mcp-server install
-
-# 📦 Or install globally first
-npm install -g leadmagic-mcp-server
-leadmagic-mcp-install
 ```
 
 **✨ The installer will:**
-- ✅ Help you get your LeadMagic API key
-- ✅ Automatically configure your preferred AI tool
-- ✅ Create all necessary config files
-- ✅ Provide usage examples and documentation
+- ✅ **Validate your API key** in real-time and show your remaining credits.
+- ✅ Automatically detect and configure your preferred AI tool (Claude, Cursor, VS Code, etc.).
+- ✅ Create all necessary config files and a local `.env` for development.
+- ✅ Provide usage examples and helpful links.
 
 ### 📱 Option 2: Quick Manual Setup
 
-For specific tools, use these one-liner configs:
+If you prefer manual setup or are using a client like **Aider**, you can add the server configuration directly to your client's settings file. The interactive installer provides copy-pasteable snippets for this.
 
-#### 🤖 Claude Desktop
+Run the installer and choose the "Other (Manual Setup)" option:
 ```bash
-# 🍎 macOS/Linux
-echo '{"mcpServers":{"leadmagic":{"command":"leadmagic-mcp-server","env":{"LEADMAGIC_API_KEY":"your-key-here"}}}}' > ~/.config/claude/claude_desktop_config.json
-
-# 🪟 Windows
-echo '{"mcpServers":{"leadmagic":{"command":"leadmagic-mcp-server","env":{"LEADMAGIC_API_KEY":"your-key-here"}}}}' > "%APPDATA%\Claude\claude_desktop_config.json"
-```
-
-#### 🎯 Cursor (Cline Extension)
-Add to your Cursor `settings.json`:
-```json
-{
-  "cline.mcpServers": {
-    "leadmagic": {
-      "command": "leadmagic-mcp-server",
-      "env": {
-        "LEADMAGIC_API_KEY": "your-key-here"
-      }
-    }
-  }
-}
-```
-
-#### 🏄 Windsurf
-Add to your Windsurf `settings.json`:
-```json
-{
-  "mcpServers": {
-    "leadmagic": {
-      "command": "leadmagic-mcp-server",
-      "env": {
-        "LEADMAGIC_API_KEY": "your-key-here"
-      }
-    }
-  }
-}
-```
-
-#### 🔄 Continue.dev
-Add to your `~/.continue/config.json`:
-```json
-{
-  "mcpServers": [{
-    "name": "leadmagic",
-    "command": "leadmagic-mcp-server",
-    "env": {
-      "LEADMAGIC_API_KEY": "your-key-here"
-    }
-  }]
-}
-```
-
-#### 💻 VS Code (Cline/Continue Extensions)
-Add to your VS Code `settings.json`:
-```json
-{
-  "cline.mcpServers": {
-    "leadmagic": {
-      "command": "leadmagic-mcp-server",
-      "env": {
-        "LEADMAGIC_API_KEY": "your-key-here"
-      }
-    }
-  }
-}
-```
-
-#### ⚡ Zed Editor
-Add to your Zed `settings.json`:
-```json
-{
-  "mcpServers": {
-    "leadmagic": {
-      "command": "leadmagic-mcp-server",
-      "env": {
-        "LEADMAGIC_API_KEY": "your-key-here"
-      }
-    }
-  }
-}
+npx leadmagic-mcp-server install
 ```
 
 ### 🔑 Get Your API Key
@@ -164,11 +82,11 @@ Add to your Zed `settings.json`:
 1. 🌐 Visit [LeadMagic Dashboard](https://app.leadmagic.io/dashboard/api-keys)
 2. 📝 Sign up for free (if needed)
 3. 🔐 Generate your API key
-4. 🔄 Replace `your-key-here` in the configs above
+4. 📋 Paste it into the interactive installer when prompted.
 
 ### ⚡ npx Usage (Zero Installation)
 
-You can use the server without installing:
+You can use the server without installing, which is great for quick tests or containerized environments:
 
 ```bash
 # 🚀 Run directly with your API key
@@ -301,7 +219,8 @@ npm run inspector
 | 💻 **VS Code (Cline)** | VS Code settings.json | ✅ Fully Supported | Requires Cline extension |
 | 💻 **VS Code (Continue)** | Continue extension config | ✅ Fully Supported | Requires Continue extension |
 | ⚡ **Zed Editor** | Interactive installer or settings | ✅ Fully Supported | Modern code editor |
-| 🤖 **Aider** | Command line with MCP support | ✅ Supported | AI pair programming |
+| 🤖 **Aider** | Manual Configuration | ✅ Supported | AI pair programming in your terminal |
+| ✨ **Augment Code** | Manual Configuration | ✅ Supported | AI coding assistant |
 | 🔗 **Any MCP Client** | Manual configuration | ✅ Supported | Standard MCP protocol |
 
 ---
@@ -319,11 +238,11 @@ npm run inspector
 ### 📁 Project Structure
 ```
 ├── src/
-│   ├── index.ts        # 🚀 Main entry point and server startup
+│   ├── index.ts        # 🚀 Main entry point and CLI command handling
 │   ├── server.ts       # 🔌 MCP server implementation with all 19 tools
 │   ├── client.ts       # 🌐 LeadMagic API client wrapper  
-│   └── types.ts        # 📝 TypeScript types and Zod schemas
-├── install.js          # 🛠️ Interactive installer script
+│   ├── types.ts        # 📝 TypeScript types and Zod schemas
+│   └── install.tsx     # 🎨 The new interactive installer (React/Ink)
 ├── dist/               # 📦 Compiled JavaScript output
 ├── .env.example        # 🔐 Environment configuration example
 └── README.md           # 📚 This file
