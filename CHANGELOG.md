@@ -81,7 +81,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
    - `social_to_work_email` - Work email from social profiles
 
 3. **Profile & Company Intelligence**
-   - `search_profile` - LinkedIn profile enrichment (300 req/min)
+   - `search_profile` - B2B profile enrichment (300 req/min)
    - `search_company` - Company data enrichment
    - `email_to_profile` - B2B profile URLs from emails
    - `get_company_funding` - Funding, financials, competitors

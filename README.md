@@ -179,7 +179,7 @@ npx leadmagic-mcp-server --help
 - 📧 `find_email` - Find verified email addresses by name and company
 
 ### 🏢 Profile & Company Intelligence (5 tools)  
-- 👤 `search_profile` - Get full LinkedIn profile details (300 req/min)
+- 👤 `search_profile` - Get full B2B profile details (300 req/min)
 - 🏭 `search_company` - Search companies by domain, name, or profile URL
 - 📱 `find_mobile` - Find mobile phone numbers from profiles/emails
 - 🔗 `email_to_profile` - Find B2B profile URLs from work emails
@@ -212,7 +212,7 @@ Once installed, you can use natural language commands in your AI tool:
 ```
 "Find the email for John Doe at Microsoft"
 "Validate the email john@acme.com" 
-"Find personal email for LinkedIn profile https://linkedin.com/in/johndoe"
+"Find personal email for B2B profile https://linkedin.com/in/johndoe"
 ```
 
 ### 🏢 Company Intelligence  
@@ -226,7 +226,7 @@ Once installed, you can use natural language commands in your AI tool:
 ```
 "Find software engineer jobs at tech companies"
 "Search for product manager roles in San Francisco"
-"Find mobile number for this LinkedIn profile"
+"Find mobile number for this B2B profile"
 ```
 
 ### 📱 Competitive Analysis

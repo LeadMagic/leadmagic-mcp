@@ -49,7 +49,7 @@ Look for issues labeled:
 
 ```bash
 # 1. Fork and clone the repository
-git clone https://github.com/YOUR-USERNAME/leadmagic-mcp.git
+git clone https://github.com/LeadMagic/leadmagic-mcp.git
 cd leadmagic-mcp
 
 # 2. Install dependencies
@@ -105,7 +105,7 @@ npm run inspector
 Click the "Fork" button on GitHub and clone your fork:
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/leadmagic-mcp.git
+git clone https://github.com/LeadMagic/leadmagic-mcp.git
 cd leadmagic-mcp
 git remote add upstream https://github.com/LeadMagic/leadmagic-mcp.git
 ```

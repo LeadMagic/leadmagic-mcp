@@ -362,7 +362,7 @@ async function showUsageExamples() {
   log('📧 Email Operations:', 'yellow');
   log('• "Find the email for John Doe at Microsoft"', 'green');
   log('• "Validate the email john@acme.com"', 'green');
-  log('• "Find personal email for LinkedIn profile [URL]"', 'green');
+          log('• "Find personal email for B2B profile [URL]"', 'green');
   log('');
   log('🏢 Company Intelligence:', 'yellow');
   log('• "Search for Tesla company information"', 'green');
@@ -372,7 +372,7 @@ async function showUsageExamples() {
   log('💼 Job & Recruitment:', 'yellow');
   log('• "Find software engineer jobs at tech companies"', 'green');
   log('• "Search for product manager roles in San Francisco"', 'green');
-  log('• "Find mobile number for this LinkedIn profile"', 'green');
+          log('• "Find mobile number for this B2B profile"', 'green');
   log('');
   log('📱 Advertisement Intelligence:', 'yellow');
   log('• "Search for Google Ads from competitor.com"', 'green');
