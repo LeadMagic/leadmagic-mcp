@@ -1,0 +1,25 @@
+# 👥 Code Owners
+# 
+# This file defines who should review changes to different parts of the repository.
+# Learn more: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Global owners - will be requested for review on all changes
+* @LeadMagic/core-team
+
+# Source code
+/src/ @LeadMagic/developers
+
+# Documentation  
+/README.md @LeadMagic/docs-team
+/CONTRIBUTING.md @LeadMagic/docs-team
+/CHANGELOG.md @LeadMagic/docs-team
+/SECURITY.md @LeadMagic/security-team
+
+# Configuration files
+/.github/ @LeadMagic/devops-team
+/package.json @LeadMagic/core-team
+/tsconfig.json @LeadMagic/developers
+
+# Installation and setup
+/install.js @LeadMagic/core-team
+/.env.example @LeadMagic/security-team 
