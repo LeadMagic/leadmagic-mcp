@@ -34,7 +34,8 @@
     "install.js",
     ".env.example",
     "README.md",
-    "LICENSE"
+    "LICENSE",
+    "CHANGELOG.md"
   ],
   "scripts": {
     "build": "npm run clean && tsc",
