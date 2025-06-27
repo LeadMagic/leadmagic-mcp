@@ -51,31 +51,24 @@ jobs:
         fi
         
     - name: 🎉 Create GitHub Release
-      uses: actions/create-release@v1
+      uses: softprops/action-gh-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: ${{ github.ref }}
-        release_name: Release v${{ steps.version.outputs.version }}
+        tag_name: ${{ github.ref_name }}
+        name: Release v${{ steps.version.outputs.version }}
         body_path: release-notes.md
         draft: false
         prerelease: false
         
     - name: 📦 Publish to npm
-      run: npm publish
+      run: npm publish --dry-run
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         
-    - name: 📢 Notify Discord
-      uses: Ilshidur/action-discord@master
-      env:
-        DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-      with:
-        args: |
-          🎉 **LeadMagic MCP Server v${{ steps.version.outputs.version }} Released!**
-          
-          📦 **npm**: `npm install -g leadmagic-mcp-server@${{ steps.version.outputs.version }}`
-          🔗 **GitHub**: https://github.com/LeadMagic/leadmagic-mcp/releases/tag/v${{ steps.version.outputs.version }}
-          📚 **Docs**: https://github.com/LeadMagic/leadmagic-mcp/blob/main/README.md
-          
-          🚀 **Quick Start**: `npx leadmagic-mcp-server install` 
+    - name: 📢 Success notification
+      if: success()
+      run: |
+        echo "🎉 LeadMagic MCP Server v${{ steps.version.outputs.version }} Released!"
+        echo "📦 npm: npm install -g leadmagic-mcp-server@${{ steps.version.outputs.version }}"
+        echo "🔗 GitHub: https://github.com/LeadMagic/leadmagic-mcp/releases/tag/v${{ steps.version.outputs.version }}" 

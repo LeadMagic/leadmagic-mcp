@@ -47,10 +47,7 @@
     "url": "https://github.com/LeadMagic/leadmagic-mcp/issues",
     "email": "support@leadmagic.io"
   },
-  "funding": {
-    "type": "github",
-    "url": "https://github.com/sponsors/LeadMagic"
-  },
+
   "main": "dist/index.js",
   "bin": {
     "leadmagic-mcp-server": "dist/index.js",
