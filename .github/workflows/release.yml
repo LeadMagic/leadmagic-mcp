@@ -1,0 +1,81 @@
+name: 🚀 Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+env:
+  NODE_VERSION: '18'
+
+jobs:
+  release:
+    name: 🎉 Create Release
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        
+    - name: 📦 Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+        cache: 'npm'
+        registry-url: 'https://registry.npmjs.org'
+        
+    - name: 📋 Install dependencies
+      run: npm ci
+      
+    - name: ✅ Run full validation
+      run: npm run validate
+      
+    - name: 🏗️ Build for production
+      run: npm run build
+      
+    - name: 📊 Extract version
+      id: version
+      run: echo "version=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+      
+    - name: 📝 Generate changelog
+      id: changelog
+      run: |
+        # Extract changelog for this version
+        if [ -f "CHANGELOG.md" ]; then
+          # Get changelog section for this version
+          awk '/^## \[${{ steps.version.outputs.version }}\]/, /^## \[/ {if(/^## \[/ && !/^## \[${{ steps.version.outputs.version }}\]/) exit; print}' CHANGELOG.md > release-notes.md
+        else
+          echo "Release ${{ steps.version.outputs.version }}" > release-notes.md
+        fi
+        
+    - name: 🎉 Create GitHub Release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release v${{ steps.version.outputs.version }}
+        body_path: release-notes.md
+        draft: false
+        prerelease: false
+        
+    - name: 📦 Publish to npm
+      run: npm publish
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        
+    - name: 📢 Notify Discord
+      uses: Ilshidur/action-discord@master
+      env:
+        DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+      with:
+        args: |
+          🎉 **LeadMagic MCP Server v${{ steps.version.outputs.version }} Released!**
+          
+          📦 **npm**: `npm install -g leadmagic-mcp-server@${{ steps.version.outputs.version }}`
+          🔗 **GitHub**: https://github.com/LeadMagic/leadmagic-mcp/releases/tag/v${{ steps.version.outputs.version }}
+          📚 **Docs**: https://github.com/LeadMagic/leadmagic-mcp/blob/main/README.md
+          
+          🚀 **Quick Start**: `npx leadmagic-mcp-server install` 

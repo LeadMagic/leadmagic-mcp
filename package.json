@@ -35,7 +35,9 @@
     ".env.example",
     "README.md",
     "LICENSE",
-    "CHANGELOG.md"
+    "CHANGELOG.md",
+    "CONTRIBUTING.md",
+    "SECURITY.md"
   ],
   "scripts": {
     "build": "npm run clean && tsc",

@@ -1,0 +1,17 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 📚 Documentation
+    url: https://github.com/LeadMagic/leadmagic-mcp/blob/main/README.md
+    about: Read our comprehensive documentation and setup guides
+  - name: 💬 Discord Community
+    url: https://discord.gg/leadmagic
+    about: Join our community for questions, discussions, and support
+  - name: 📧 Email Support
+    url: mailto:support@leadmagic.io
+    about: Contact our support team directly for urgent issues
+  - name: 🌐 LeadMagic Website
+    url: https://leadmagic.io
+    about: Visit the official LeadMagic website
+  - name: 📊 API Dashboard
+    url: https://app.leadmagic.io
+    about: Access your LeadMagic API dashboard and account settings 
