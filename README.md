@@ -1,19 +1,31 @@
-# 🎯 LeadMagic MCP Server
+# 🚀 LeadMagic MCP Server
 
 <div align="center">
 
-**🚀 Production-ready Model Context Protocol (MCP) server for LeadMagic's complete B2B data enrichment API suite**
+![LeadMagic MCP Server](https://img.shields.io/badge/🎯-LeadMagic%20MCP%20Server-blue?style=for-the-badge&labelColor=000000)
 
-[![npm version](https://img.shields.io/npm/v/leadmagic-mcp-server?style=for-the-badge&color=brightgreen)](https://badge.fury.io/js/leadmagic-mcp-server)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
-[![Node.js Version](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen.svg?style=for-the-badge)](https://nodejs.org/)
+**⚡ The Ultimate Model Context Protocol Server for B2B Data Enrichment**
+
+*Seamlessly integrate LeadMagic's complete API suite with Claude, Cursor, Windsurf, and all MCP-compatible AI tools*
+
+[![npm version](https://img.shields.io/npm/v/leadmagic-mcp-server?style=for-the-badge&logo=npm&logoColor=white&color=CB3837)](https://www.npmjs.com/package/leadmagic-mcp-server)
+[![Downloads](https://img.shields.io/npm/dm/leadmagic-mcp-server?style=for-the-badge&logo=npm&logoColor=white&color=brightgreen)](https://www.npmjs.com/package/leadmagic-mcp-server)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge&logo=opensource&logoColor=white)](https://opensource.org/licenses/MIT)
+[![Node.js](https://img.shields.io/badge/Node.js-%3E%3D18.0.0-brightgreen.svg?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
+
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![MCP Compatible](https://img.shields.io/badge/MCP-Compatible-blue?style=for-the-badge)](https://modelcontextprotocol.io)
+[![MCP Compatible](https://img.shields.io/badge/MCP-Compatible-blue?style=for-the-badge&logo=protocol&logoColor=white)](https://modelcontextprotocol.io)
+[![Production Ready](https://img.shields.io/badge/Production-Ready-brightgreen?style=for-the-badge&logo=checkmarx&logoColor=white)](https://github.com/LeadMagic/leadmagic-mcp)
+[![Security](https://img.shields.io/badge/Security-Verified-green?style=for-the-badge&logo=shield&logoColor=white)](https://github.com/LeadMagic/leadmagic-mcp/security)
 
-[![GitHub Stars](https://img.shields.io/github/stars/LeadMagic/leadmagic-mcp?style=for-the-badge)](https://github.com/LeadMagic/leadmagic-mcp/stargazers)
-[![GitHub Issues](https://img.shields.io/github/issues/LeadMagic/leadmagic-mcp?style=for-the-badge)](https://github.com/LeadMagic/leadmagic-mcp/issues)
-[![GitHub Forks](https://img.shields.io/github/forks/LeadMagic/leadmagic-mcp?style=for-the-badge)](https://github.com/LeadMagic/leadmagic-mcp/network/members)
-[![Last Commit](https://img.shields.io/github/last-commit/LeadMagic/leadmagic-mcp?style=for-the-badge)](https://github.com/LeadMagic/leadmagic-mcp/commits/main)
+[![GitHub Stars](https://img.shields.io/github/stars/LeadMagic/leadmagic-mcp?style=for-the-badge&logo=github&logoColor=white&color=yellow)](https://github.com/LeadMagic/leadmagic-mcp/stargazers)
+[![GitHub Issues](https://img.shields.io/github/issues/LeadMagic/leadmagic-mcp?style=for-the-badge&logo=github&logoColor=white&color=red)](https://github.com/LeadMagic/leadmagic-mcp/issues)
+[![GitHub Forks](https://img.shields.io/github/forks/LeadMagic/leadmagic-mcp?style=for-the-badge&logo=github&logoColor=white&color=blue)](https://github.com/LeadMagic/leadmagic-mcp/network/members)
+[![Last Commit](https://img.shields.io/github/last-commit/LeadMagic/leadmagic-mcp?style=for-the-badge&logo=git&logoColor=white&color=orange)](https://github.com/LeadMagic/leadmagic-mcp/commits/main)
+
+---
+
+**🎯 19 Powerful Tools • 🔥 Zero Configuration • ⚡ One-Line Setup • 🛡️ Enterprise Security**
 
 </div>
 
@@ -442,7 +454,15 @@ Have an idea? [Request a feature](https://github.com/LeadMagic/leadmagic-mcp/iss
 
 ## 🔄 Updates & Changelog
 
-### v1.0.0 (Latest) - June 27, 2025
+### v1.0.1 (Latest) - June 27, 2025
+- 🎨 Redesigned README with professional and impactful header
+- 📦 Enhanced package.json with better description and keywords  
+- 🎯 Improved branding and visual presentation
+- 🔧 Documentation polish and terminology consistency
+- 🏷️ Added enhanced badges with security verification
+- 📚 Overall professional presentation improvements
+
+### v1.0.0 - June 27, 2025
 - ✨ Interactive installer for all major AI tools
 - ✅ Support for Claude Desktop, Cursor, Windsurf, Continue.dev, VS Code, Zed
 - 🔧 All 19 LeadMagic API endpoints implemented

@@ -1,7 +1,7 @@
 {
   "name": "leadmagic-mcp-server",
-  "version": "1.0.0",
-  "description": "Model Context Protocol server for LeadMagic API - Complete B2B data enrichment with 19 tools for email finding, profile enrichment, company intelligence, job data, and advertisement tracking",
+  "version": "1.0.1",
+  "description": "🚀 Production-ready Model Context Protocol server for LeadMagic API - Complete B2B data enrichment suite with 19 powerful tools for email finding, profile enrichment, company intelligence, job data, and advertisement tracking. Zero-config setup for Claude, Cursor, Windsurf, Continue.dev, and all MCP clients.",
   "type": "module",
   "keywords": [
     "mcp",
@@ -12,17 +12,32 @@
     "email-finder",
     "lead-generation",
     "company-data",
-    "profile-enrichment"
+    "profile-enrichment",
+    "claude",
+    "cursor",
+    "windsurf",
+    "continue",
+    "ai-tools",
+    "typescript",
+    "production-ready",
+    "zero-config",
+    "enterprise",
+    "api-client"
   ],
-  "author": "LeadMagic MCP Team",
+  "author": {
+    "name": "LeadMagic Team",
+    "email": "support@leadmagic.io",
+    "url": "https://leadmagic.io"
+  },
   "license": "MIT",
-  "homepage": "https://github.com/LeadMagic/leadmagic-mcp",
+  "homepage": "https://github.com/LeadMagic/leadmagic-mcp#readme",
   "repository": {
     "type": "git",
     "url": "https://github.com/LeadMagic/leadmagic-mcp.git"
   },
   "bugs": {
-    "url": "https://github.com/LeadMagic/leadmagic-mcp/issues"
+    "url": "https://github.com/LeadMagic/leadmagic-mcp/issues",
+    "email": "support@leadmagic.io"
   },
   "main": "dist/index.js",
   "bin": {
