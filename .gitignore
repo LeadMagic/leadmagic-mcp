@@ -73,4 +73,7 @@ secrets.json
 *.pem
 
 # MCP Inspector
-.mcp/ 
+.mcp/ .env
+test-api-live.js
+*.log
+.DS_Store
