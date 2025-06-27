@@ -1,0 +1,76 @@
+{
+  "name": "leadmagic-mcp-server",
+  "version": "1.0.0",
+  "description": "Model Context Protocol server for LeadMagic API - Complete B2B data enrichment with 19 tools for email finding, profile enrichment, company intelligence, job data, and advertisement tracking",
+  "type": "module",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "leadmagic",
+    "b2b",
+    "data-enrichment",
+    "email-finder",
+    "lead-generation",
+    "company-data",
+    "profile-enrichment"
+  ],
+  "author": "LeadMagic MCP Team",
+  "license": "MIT",
+  "homepage": "https://github.com/LeadMagic/leadmagic-mcp",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LeadMagic/leadmagic-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LeadMagic/leadmagic-mcp/issues"
+  },
+  "main": "dist/index.js",
+  "bin": {
+    "leadmagic-mcp": "dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "npm run clean && tsc",
+    "dev": "tsx src/index.ts",
+    "start": "node dist/index.js",
+    "watch": "tsx watch src/index.ts",
+    "test": "jest",
+    "lint": "eslint src/**/*.ts",
+    "lint:fix": "eslint src/**/*.ts --fix",
+    "format": "prettier --write src/**/*.ts",
+    "type-check": "tsc --noEmit",
+    "clean": "rm -rf dist",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run lint && npm run type-check && npm run build",
+    "inspector": "npx @modelcontextprotocol/inspector",
+    "validate": "npm run type-check && npm run build && echo '✅ Validation passed'"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "zod": "^3.22.4",
+    "axios": "^1.6.0",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.57.0",
+    "jest": "^29.7.0",
+    "@types/jest": "^29.5.0",
+    "ts-jest": "^29.1.0",
+    "tsx": "^4.6.0",
+    "typescript": "^5.3.0",
+    "prettier": "^3.1.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "peerDependencies": {
+    "@modelcontextprotocol/sdk": ">=1.0.0"
+  }
+} 
