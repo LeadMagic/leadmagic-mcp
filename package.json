@@ -26,10 +26,13 @@
   },
   "main": "dist/index.js",
   "bin": {
-    "leadmagic-mcp": "dist/index.js"
+    "leadmagic-mcp-server": "dist/index.js",
+    "leadmagic-mcp-install": "install.js"
   },
   "files": [
     "dist",
+    "install.js",
+    ".env.example",
     "README.md",
     "LICENSE"
   ],
@@ -45,9 +48,11 @@
     "type-check": "tsc --noEmit",
     "clean": "rm -rf dist",
     "prepare": "npm run build",
-    "prepublishOnly": "npm run lint && npm run type-check && npm run build",
+    "prepublishOnly": "npm run validate",
     "inspector": "npx @modelcontextprotocol/inspector",
-    "validate": "npm run type-check && npm run build && echo '✅ Validation passed'"
+    "validate": "npm run type-check && npm run build && echo '✅ Validation passed'",
+    "install-interactive": "node install.js",
+    "quick-setup": "npm install -g leadmagic-mcp-server && leadmagic-mcp-install"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.0",

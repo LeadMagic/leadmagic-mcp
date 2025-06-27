@@ -551,7 +551,15 @@ export class LeadMagicMCPServer {
     };
   }
 
-  public getServer(): McpServer {
+  public getServer(): McpServer {    
     return this.server;
   }
+}
+
+/**
+ * Create a new LeadMagic MCP server instance
+ */
+export function createLeadMagicServer(apiKey: string) {
+  const mcpServer = new LeadMagicMCPServer(apiKey);
+  return mcpServer.getServer();
 } 

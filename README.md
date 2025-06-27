@@ -6,47 +6,137 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen.svg)](https://nodejs.org/)
 
-> Access all 19 LeadMagic API endpoints through the Model Context Protocol for seamless integration with Claude, Cline, and other MCP-compatible AI tools.
+> Access all 19 LeadMagic API endpoints through the Model Context Protocol for seamless integration with Claude, Cursor, Windsurf, Continue.dev, and other MCP-compatible AI tools.
 
-## 🚀 Quick Start
+## 🚀 Super Easy Installation
 
-### 1. Install
+### ⚡ Option 1: Interactive Installer (Recommended)
+
+The easiest way to get started:
 
 ```bash
-# Global installation (recommended)
-npm install -g leadmagic-mcp-server
+# Using npx (no installation required)
+npx leadmagic-mcp-server install
 
-# Or using npx (no installation required)
-npx leadmagic-mcp-server
+# Or install globally first
+npm install -g leadmagic-mcp-server
+leadmagic-mcp-install
 ```
 
-### 2. Get Your API Key
+The installer will:
+- ✅ Help you get your LeadMagic API key
+- ✅ Automatically configure your preferred AI tool
+- ✅ Create all necessary config files
+- ✅ Provide usage examples
 
-Get your free API key from [LeadMagic Dashboard](https://app.leadmagic.io/dashboard/api-keys)
+### 📱 Option 2: Quick Manual Setup
 
-### 3. Configure Claude Desktop
+For specific tools, use these one-liner configs:
 
-Add to your Claude Desktop config file:
+#### 🤖 Claude Desktop
+```bash
+# macOS/Linux
+echo '{"mcpServers":{"leadmagic":{"command":"leadmagic-mcp-server","env":{"LEADMAGIC_API_KEY":"your-key-here"}}}}' > ~/.config/claude/claude_desktop_config.json
 
-**macOS:** `~/Library/Application Support/Claude/claude_desktop_config.json`  
-**Windows:** `%APPDATA%\Claude\claude_desktop_config.json`
+# Windows
+echo '{"mcpServers":{"leadmagic":{"command":"leadmagic-mcp-server","env":{"LEADMAGIC_API_KEY":"your-key-here"}}}}' > "%APPDATA%\Claude\claude_desktop_config.json"
+```
 
+#### 🎯 Cursor (Cline Extension)
+Add to your Cursor settings.json:
 ```json
 {
-  "mcpServers": {
+  "cline.mcpServers": {
     "leadmagic": {
       "command": "leadmagic-mcp-server",
       "env": {
-        "LEADMAGIC_API_KEY": "your-api-key-here"
+        "LEADMAGIC_API_KEY": "your-key-here"
       }
     }
   }
 }
 ```
 
-### 4. Restart Claude Desktop
+#### 🏄 Windsurf
+Add to your Windsurf settings.json:
+```json
+{
+  "mcpServers": {
+    "leadmagic": {
+      "command": "leadmagic-mcp-server",
+      "env": {
+        "LEADMAGIC_API_KEY": "your-key-here"
+      }
+    }
+  }
+}
+```
 
-That's it! 🎉 You now have access to all 19 LeadMagic tools in Claude.
+#### 🔄 Continue.dev
+Add to your `~/.continue/config.json`:
+```json
+{
+  "mcpServers": [{
+    "name": "leadmagic",
+    "command": "leadmagic-mcp-server",
+    "env": {
+      "LEADMAGIC_API_KEY": "your-key-here"
+    }
+  }]
+}
+```
+
+#### 💻 VS Code (Cline/Continue Extensions)
+Add to your VS Code settings.json:
+```json
+{
+  "cline.mcpServers": {
+    "leadmagic": {
+      "command": "leadmagic-mcp-server",
+      "env": {
+        "LEADMAGIC_API_KEY": "your-key-here"
+      }
+    }
+  }
+}
+```
+
+#### ⚡ Zed Editor
+Add to your Zed settings.json:
+```json
+{
+  "mcpServers": {
+    "leadmagic": {
+      "command": "leadmagic-mcp-server",
+      "env": {
+        "LEADMAGIC_API_KEY": "your-key-here"
+      }
+    }
+  }
+}
+```
+
+### 🔑 Get Your API Key
+
+1. Visit [LeadMagic Dashboard](https://app.leadmagic.io/dashboard/api-keys)
+2. Sign up for free (if needed)
+3. Generate your API key
+4. Replace `your-key-here` in the configs above
+
+### ⚡ npx Usage (Zero Installation)
+
+You can use the server without installing:
+
+```bash
+# Run directly with your API key
+LEADMAGIC_API_KEY=your-key npx leadmagic-mcp-server
+
+# Run the interactive installer
+npx leadmagic-mcp-server install
+
+# Check available commands
+npx leadmagic-mcp-server --help
+```
 
 ---
 
@@ -85,24 +175,34 @@ That's it! 🎉 You now have access to all 19 LeadMagic tools in Claude.
 
 ## 💡 Usage Examples
 
-### Email Discovery & Validation
+Once installed, you can use natural language commands in your AI tool:
+
+### 📧 Email Operations
 ```
-Hey Claude, validate the email john.doe@acme.com and if it's valid, find the mobile number for this person.
+"Find the email for John Doe at Microsoft"
+"Validate the email john@acme.com" 
+"Find personal email for LinkedIn profile https://linkedin.com/in/johndoe"
 ```
 
-### Company Intelligence  
+### 🏢 Company Intelligence  
 ```
-Claude, search for information about Tesla including their funding, competitors, and current job openings.
-```
-
-### Lead Generation
-```
-Find employees at Microsoft who work in "Product Management" roles and get their contact information.
+"Search for Tesla company information"
+"Get funding information for Stripe"
+"Find employees at OpenAI who work in engineering"
 ```
 
-### Competitive Analysis
+### 💼 Job & Recruitment
 ```
-Analyze OpenAI's advertising strategy by searching their Google Ads, Meta Ads, and B2B advertising campaigns.
+"Find software engineer jobs at tech companies"
+"Search for product manager roles in San Francisco"
+"Find mobile number for this LinkedIn profile"
+```
+
+### 📱 Competitive Analysis
+```
+"Search for Google Ads from competitor.com"
+"Find Meta ads for company XYZ"
+"Get B2B advertising campaigns for stripe.com"
 ```
 
 ---
@@ -147,6 +247,22 @@ npm run inspector
 
 ---
 
+## 🌐 Supported MCP Clients
+
+| Client | Installation | Status | Notes |
+|--------|-------------|--------|-------|
+| **Claude Desktop** | Interactive installer or manual config | ✅ Fully Supported | Official Anthropic client |
+| **Cursor (Cline)** | Interactive installer or VS Code settings | ✅ Fully Supported | Requires Cline extension |
+| **Windsurf** | Interactive installer or manual config | ✅ Fully Supported | Codeium's AI IDE |
+| **Continue.dev** | Interactive installer or config file | ✅ Fully Supported | Open source coding assistant |
+| **VS Code (Cline)** | VS Code settings.json | ✅ Fully Supported | Requires Cline extension |
+| **VS Code (Continue)** | Continue extension config | ✅ Fully Supported | Requires Continue extension |
+| **Zed Editor** | Interactive installer or settings | ✅ Fully Supported | Modern code editor |
+| **Aider** | Command line with MCP support | ✅ Supported | AI pair programming |
+| **Any MCP Client** | Manual configuration | ✅ Supported | Standard MCP protocol |
+
+---
+
 ## 🏗️ Architecture
 
 ### Technology Stack
@@ -164,6 +280,7 @@ npm run inspector
 │   ├── server.ts       # MCP server implementation with all 19 tools
 │   ├── client.ts       # LeadMagic API client wrapper  
 │   └── types.ts        # TypeScript types and Zod schemas
+├── install.js          # Interactive installer script
 ├── dist/               # Compiled JavaScript output
 ├── .env.example        # Environment configuration example
 └── README.md           # This file
@@ -178,6 +295,7 @@ npm run inspector
 ✅ **Error handling** - Comprehensive error catching and user-friendly messages  
 ✅ **Rate limiting** - Respects LeadMagic API rate limits  
 ✅ **Secure defaults** - Production-ready configuration out of the box  
+✅ **Interactive installer** - No manual config file editing required
 
 ---
 
@@ -214,38 +332,6 @@ Consistent error format across all endpoints:
 
 ---
 
-## 🌐 Other MCP Clients
-
-While this guide focuses on Claude Desktop, this MCP server works with any MCP-compatible client:
-
-### Cline (VS Code)
-Add to your Cline configuration:
-```json
-{
-  "mcpServers": {
-    "leadmagic": {
-      "command": "leadmagic-mcp-server",
-      "env": {
-        "LEADMAGIC_API_KEY": "your-api-key-here"
-      }
-    }
-  }
-}
-```
-
-### Custom Implementations
-Use directly with the MCP SDK:
-```typescript
-import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
-import { LeadMagicMCPServer } from 'leadmagic-mcp-server';
-
-const server = new LeadMagicMCPServer(process.env.LEADMAGIC_API_KEY);
-const transport = new StdioServerTransport();
-await server.connect(transport);
-```
-
----
-
 ## 📈 Credit Consumption
 
 | Endpoint | Credits | Notes |
@@ -263,6 +349,21 @@ await server.connect(transport);
 
 ---
 
+## 🎯 Installation Matrix
+
+Choose your installation method based on your setup:
+
+| Scenario | Command | Best For |
+|----------|---------|----------|
+| **First time user** | `npx leadmagic-mcp-server install` | Easiest setup |
+| **Claude Desktop** | Interactive installer → Option 1 | Most popular |
+| **Cursor/VS Code** | Interactive installer → Option 2/5 | Developers |
+| **Multiple clients** | Interactive installer → Option 7 | Power users |
+| **Quick test** | `LEADMAGIC_API_KEY=key npx leadmagic-mcp-server` | Testing |
+| **Local development** | Clone repo + `.env` file | Contributors |
+
+---
+
 ## 🤝 Support & Resources
 
 - **📚 API Documentation**: [docs.leadmagic.io](https://docs.leadmagic.io)
@@ -270,6 +371,7 @@ await server.connect(transport);
 - **📊 Dashboard**: [app.leadmagic.io](https://app.leadmagic.io)
 - **🆘 Support**: support@leadmagic.io
 - **🐛 Issues**: [GitHub Issues](https://github.com/LeadMagic/leadmagic-mcp/issues)
+- **💬 Community**: [Join our Discord](https://discord.gg/leadmagic)
 
 ---
 
@@ -288,6 +390,18 @@ MIT License - see the [LICENSE](LICENSE) file for details.
 5. Commit your changes: `git commit -am 'Add new feature'`
 6. Push to the branch: `git push origin feature/new-feature`
 7. Submit a pull request
+
+---
+
+## 🔄 Updates & Changelog
+
+### v1.0.0 (Latest)
+- ✨ Interactive installer for all major AI tools
+- ✅ Support for Claude Desktop, Cursor, Windsurf, Continue.dev, VS Code, Zed
+- 🔧 All 19 LeadMagic API endpoints implemented
+- 🎯 Zero-config npx usage
+- 🔒 Enhanced security and error handling
+- 📚 Comprehensive documentation
 
 ---
 
