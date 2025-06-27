@@ -442,7 +442,7 @@ Have an idea? [Request a feature](https://github.com/LeadMagic/leadmagic-mcp/iss
 
 ## 🔄 Updates & Changelog
 
-### v1.0.0 (Latest) - January 2025
+### v1.0.0 (Latest) - June 27, 2025
 - ✨ Interactive installer for all major AI tools
 - ✅ Support for Claude Desktop, Cursor, Windsurf, Continue.dev, VS Code, Zed
 - 🔧 All 19 LeadMagic API endpoints implemented

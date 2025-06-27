@@ -221,7 +221,7 @@ const apiKey = "lm_1234567890abcdef"; // NEVER DO THIS
 
 This security policy is reviewed and updated regularly. Check back for the latest security guidance and best practices.
 
-**Last Updated**: January 27, 2025
+**Last Updated**: June 27, 2025
 **Version**: 1.0.0
 
 ---
