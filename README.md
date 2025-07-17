@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/leadmagic-leadmagic-mcp-badge.png)](https://mseep.ai/app/leadmagic-leadmagic-mcp)
+
 # 🚀 LeadMagic MCP Server
 
 <div align="center">
