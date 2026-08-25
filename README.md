@@ -1,5 +1,16 @@
 # 🚀 LeadMagic MCP Server
 
+> [!IMPORTANT]
+> **This local MCP server is deprecated.** LeadMagic now ships a **hosted MCP server** with OAuth sign-in (no API keys in your client) and the full current tool surface — people/company/jobs search, enrichment, ads research, and bulk:
+>
+> **`https://mcp.leadmagic.io/mcp`**
+>
+> - Setup for every client (Claude, Claude Code, ChatGPT, Codex, Cursor, and more): [leadmagic.io/docs/mcp/setup](https://leadmagic.io/docs/mcp/setup)
+> - Agent skills: [`npx skills add LeadMagic/leadmagic-skills`](https://github.com/LeadMagic/leadmagic-skills)
+> - Claude Code plugin: [LeadMagic/leadmagic-claude-plugin](https://github.com/LeadMagic/leadmagic-claude-plugin) · Cursor plugin: [LeadMagic/leadmagic-cursor-plugin](https://github.com/LeadMagic/leadmagic-cursor-plugin)
+>
+> The npm package below still works against the REST API with an `X-API-Key`, but it is no longer maintained and misses newer tools. Please migrate to the hosted server.
+
 <div align="center">
 
 ![LeadMagic MCP Server](https://img.shields.io/badge/🎯-LeadMagic%20MCP%20Server-blue?style=for-the-badge&labelColor=000000)
