@@ -84,7 +84,7 @@ export class LeadMagicMCPServer {
     // Initialize MCP server with metadata
     this.server = new McpServer({
       name: 'leadmagic-mcp-server',
-      version: '1.0.0',
+      version: '1.1.0',
     });
 
     // Initialize LeadMagic API client
@@ -623,7 +623,7 @@ export class LeadMagicMCPServer {
           const result = await this.client.getB2BAdDetails(params);
           
           return this.formatSuccessResponse(
-            `B2B Ad details retrieved for ad ${params.ad_id}`,
+            `B2B Ad details retrieved for ad ${params.ad_url}`,
             result,
             `Title: ${result.ad_title || 'N/A'}, Company: ${result.company_name || 'N/A'}, Credits used: ${result.credits_consumed}`
           );
@@ -692,7 +692,7 @@ export class LeadMagicMCPServer {
    * @private
    */
   private handleError(error: unknown): MCPToolResponse {
-    console.error('LeadMagic API Error:', error);
+    console.error('LeadMagic request failed');
 
     let errorMessage = '❌ An unexpected error occurred';
     let errorDetails = '';
@@ -789,9 +789,9 @@ export class LeadMagicMCPServer {
   } {
     return {
       name: 'leadmagic-mcp-server',
-      version: '1.0.0',
+      version: '1.1.0',
       toolCount: 19, // Total number of registered tools
-      apiKeyMasked: this.apiKey.substring(0, 8) + '...',
+      apiKeyMasked: '[REDACTED]',
       clientConfig: this.client.getConfig()
     };
   }

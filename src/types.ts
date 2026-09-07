@@ -583,10 +583,8 @@ export const RoleFinderResponseSchema = z.object({
 export const EmployeeFinderRequestSchema = z.object({
   /** Company name to search within */
   company_name: z.string(),
-  /** Page number for pagination */
-  page: z.number().min(1).default(1),
-  /** Results per page */
-  per_page: z.number().min(1).max(50).default(20),
+  /** Maximum employees to return; this endpoint does not support offsets. */
+  limit: z.number().int().min(1).max(50).default(20),
 });
 
 /**
@@ -858,8 +856,8 @@ export const B2BAdsResponseSchema = z.object({
  * Request schema for B2B ad details
  */
 export const B2BAdDetailsRequestSchema = z.object({
-  /** Ad ID to get details for */
-  ad_id: z.string(),
+  /** Full advertisement URL to get details for */
+  ad_url: z.string().url(),
 });
 
 /**

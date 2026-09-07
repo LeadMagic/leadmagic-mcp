@@ -36,7 +36,7 @@ import Spinner from 'ink-spinner';
 import fs from 'fs';
 import path from 'path';
 import os from 'os';
-import { LeadMagicClient, LeadMagicError } from './client.js';
+import { LeadMagicClient } from './client.js';
 
 // ===== TYPES AND INTERFACES =====
 
@@ -508,7 +508,7 @@ const ClientSelection: React.FC<{ onNext: (clients: string[]) => void, onBack: (
     { id: 'manual', name: 'Other (Manual Setup)', emoji: '🔧', description: 'Show instructions for other clients (Aider, etc.)' },
   ];
 
-  useInput((input, key) => {
+  useInput((_input, key) => {
     if (key.escape) onBack();
     else if (key.upArrow) setSelectedIndex(i => Math.max(0, i - 1));
     else if (key.downArrow) setSelectedIndex(i => Math.min(clients.length - 1, i + 1));
@@ -642,7 +642,7 @@ const InstallationComplete: React.FC<{ results: InstallationResult[], onExit: ()
 };
 
 const ManualSetup: React.FC<{ onBack: () => void }> = ({ onBack }) => {
-  useInput((input, key) => { if (key.escape) onBack(); });
+  useInput((_input, key) => { if (key.escape) onBack(); });
   const apiKey = "your-leadmagic-api-key";
 
   const jsonSnippet = (serverConfig: unknown) => JSON.stringify(serverConfig, null, 2);

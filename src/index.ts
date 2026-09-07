@@ -44,7 +44,7 @@ const args = process.argv.slice(2);
 
 // Application metadata
 const APP_NAME = 'leadmagic-mcp-server';
-const APP_VERSION = '1.0.0';
+const APP_VERSION = '1.1.0';
 const GITHUB_URL = 'https://github.com/LeadMagic/leadmagic-mcp';
 const LEADMAGIC_URL = 'https://app.leadmagic.io/dashboard/api-keys';
 
@@ -280,7 +280,7 @@ async function main(): Promise<void> {
     setupShutdownHandlers(server);
 
     // Display startup information
-    console.error(`🔑 API Key: ${apiKey.substring(0, 8)}...`);
+    console.error('🔑 API authentication configured');
     console.error(`📡 Server: ${APP_NAME} v${APP_VERSION}`);
     console.error('🛠️  Tools: 19 LeadMagic API endpoints available');
     console.error('✅ Server ready - waiting for MCP client connection...');

@@ -86,7 +86,7 @@ export LEADMAGIC_API_KEY="your-secure-api-key"
 LEADMAGIC_API_KEY=your-secure-api-key
 
 # ❌ Bad - Hardcoded in code
-const apiKey = "lm_1234567890abcdef"; // NEVER DO THIS
+const apiKey = "<API_KEY>"; // NEVER DO THIS
 ```
 
 ## 🔍 Security Features

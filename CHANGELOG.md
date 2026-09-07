@@ -1,5 +1,10 @@
 # 📋 Changelog
 
+## Unreleased — 2026-09-06
+
+Migrate enrichment calls to public versioned routes; reject failed HTTP responses and redirects; redact diagnostics; refresh vulnerable dependencies; add offline tests. Ad detail inputs use ad_url and employee lookup uses limit.
+
+
 All notable changes to LeadMagic MCP Server will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),

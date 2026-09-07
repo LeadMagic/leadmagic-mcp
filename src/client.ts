@@ -52,12 +52,6 @@ import type {
   JobCountry,
   JobType,
 } from './types.js';
-import { z, ZodSchema } from 'zod';
-import {
-  CreditResponse,
-  ValidateEmailResponse,
-  FindEmailResponse,
-} from './types.js';
 
 /**
  * Custom error class for LeadMagic API errors
@@ -155,15 +149,16 @@ export class LeadMagicClient {
     return axios.create({
       baseURL: this.baseUrl,
       timeout: this.timeout,
+      maxRedirects: 0,
       headers: {
         'X-API-Key': this.apiKey,
         'Content-Type': 'application/json',
         'Accept': 'application/json',
-        'User-Agent': 'leadmagic-mcp-server/1.0.0',
+        'User-Agent': 'leadmagic-mcp-server/1.1.0',
       },
       validateStatus: (status) => {
-        // Accept all status codes and handle errors in interceptor
-        return status < 600;
+        // Route non-success responses through the error interceptor.
+        return status >= 200 && status < 300;
       },
     });
   }
@@ -177,7 +172,7 @@ export class LeadMagicClient {
     this.client.interceptors.request.use(
       (config) => {
         if (process.env.DEBUG) {
-          console.debug(`[LeadMagic] ${config.method?.toUpperCase()} ${config.url}`);
+          console.error(`[LeadMagic] ${config.method?.toUpperCase()} request`);
         }
         return config;
       },
@@ -188,7 +183,7 @@ export class LeadMagicClient {
     this.client.interceptors.response.use(
       (response: AxiosResponse) => {
         if (process.env.DEBUG) {
-          console.debug(`[LeadMagic] Response: ${response.status} ${response.statusText}`);
+          console.error(`[LeadMagic] Response: ${response.status}`);
         }
         return response;
       },
@@ -208,12 +203,11 @@ export class LeadMagicClient {
       
       if (axiosError.response) {
         // Server responded with error status
-        const { status, data } = axiosError.response;
+        const { status } = axiosError.response;
         return new LeadMagicError(
           status,
-          data?.error || 'API_ERROR',
-          data?.message || axiosError.message || 'Request failed',
-          data
+          'API_ERROR',
+          `LeadMagic request failed (HTTP ${status})`
         );
       } else if (axiosError.request) {
         // Network error - no response received
@@ -227,7 +221,7 @@ export class LeadMagicClient {
         return new LeadMagicError(
           0,
           'REQUEST_ERROR',
-          axiosError.message || 'Request configuration error'
+          'Request configuration error'
         );
       }
     }
@@ -254,7 +248,7 @@ export class LeadMagicClient {
    * ```
    */
   async getCredits(): Promise<{ credits: number }> {
-    const response = await this.client.post('/credits', {});
+    const response = await this.client.get('/v1/credits');
     return response.data;
   }
 
@@ -280,7 +274,7 @@ export class LeadMagicClient {
    * ```
    */
   async validateEmail(request: EmailValidationRequest): Promise<EmailValidationResponse> {
-    const response = await this.client.post('/email-validate', request);
+    const response = await this.client.post('/v1/people/email-validation', request);
     return response.data;
   }
 
@@ -302,7 +296,7 @@ export class LeadMagicClient {
    * ```
    */
   async findEmail(request: EmailFinderRequest): Promise<EmailFinderResponse> {
-    const response = await this.client.post('/email-finder', request);
+    const response = await this.client.post('/v1/people/email-finder', request);
     return response.data;
   }
 
@@ -328,7 +322,7 @@ export class LeadMagicClient {
    * ```
    */
   async searchProfile(request: ProfileSearchRequest): Promise<ProfileSearchResponse> {
-    const response = await this.client.post('/profile-search', request);
+    const response = await this.client.post('/v1/people/profile-search', request);
     return response.data;
   }
 
@@ -348,7 +342,7 @@ export class LeadMagicClient {
    * ```
    */
   async searchCompany(request: CompanySearchRequest): Promise<DetailedCompany> {
-    const response = await this.client.post('/company-search', request);
+    const response = await this.client.post('/v1/companies/company-search', request);
     return response.data;
   }
 
@@ -372,7 +366,7 @@ export class LeadMagicClient {
    * ```
    */
   async findMobile(request: MobileFinderRequest): Promise<MobileFinderResponse> {
-    const response = await this.client.post('/mobile-finder', request);
+    const response = await this.client.post('/v1/people/mobile-finder', request);
     return response.data;
   }
 
@@ -392,7 +386,7 @@ export class LeadMagicClient {
    * ```
    */
   async emailToProfile(request: B2BProfileRequest): Promise<B2BProfileResponse> {
-    const response = await this.client.post('/b2b-profile', request);
+    const response = await this.client.post('/v1/people/b2b-profile', request);
     return response.data;
   }
 
@@ -420,7 +414,7 @@ export class LeadMagicClient {
    * ```
    */
   async findJobs(request: JobsFinderRequest): Promise<JobsFinderResponse> {
-    const response = await this.client.post('/jobs-finder', request);
+    const response = await this.client.post('/v1/jobs/jobs-finder', request);
     return response.data;
   }
 
@@ -441,7 +435,7 @@ export class LeadMagicClient {
    * ```
    */
   async findRole(request: RoleFinderRequest): Promise<RoleFinderResponse> {
-    const response = await this.client.post('/role-finder', request);
+    const response = await this.client.post('/v1/people/role-finder', request);
     return response.data;
   }
 
@@ -463,7 +457,7 @@ export class LeadMagicClient {
    * ```
    */
   async findEmployees(request: EmployeeFinderRequest): Promise<EmployeeFinderResponse> {
-    const response = await this.client.post('/employee-finder', request);
+    const response = await this.client.post('/v1/people/employee-finder', request);
     return response.data;
   }
 
@@ -487,7 +481,7 @@ export class LeadMagicClient {
    * ```
    */
   async getCompanyFunding(request: CompanyFundingRequest): Promise<CompanyFundingResponse> {
-    const response = await this.client.post('/company-funding', request);
+    const response = await this.client.post('/v1/companies/company-funding', request);
     return response.data;
   }
 
@@ -513,7 +507,7 @@ export class LeadMagicClient {
   async findPersonalEmail(
     request: PersonalEmailFinderRequest
   ): Promise<PersonalEmailFinderResponse> {
-    const response = await this.client.post('/personal-email-finder', request);
+    const response = await this.client.post('/v1/people/personal-email-finder', request);
     return response.data;
   }
 
@@ -533,7 +527,7 @@ export class LeadMagicClient {
    * ```
    */
   async socialToWorkEmail(request: B2BSocialEmailRequest): Promise<B2BSocialEmailResponse> {
-    const response = await this.client.post('/b2b-social-email', request);
+    const response = await this.client.post('/v1/people/b2b-profile-email', request);
     return response.data;
   }
 
@@ -557,7 +551,7 @@ export class LeadMagicClient {
    * ```
    */
   async searchGoogleAds(request: AdsSearchRequest): Promise<GoogleAdsResponse> {
-    const response = await this.client.post('/google/searchads', request);
+    const response = await this.client.post('/v1/ads/google-ads-search', request);
     return response.data;
   }
 
@@ -577,7 +571,7 @@ export class LeadMagicClient {
    * ```
    */
   async searchMetaAds(request: AdsSearchRequest): Promise<MetaAdsResponse> {
-    const response = await this.client.post('/meta/searchads', request);
+    const response = await this.client.post('/v1/ads/meta-ads-search', request);
     return response.data;
   }
 
@@ -597,7 +591,7 @@ export class LeadMagicClient {
    * ```
    */
   async searchB2BAds(request: AdsSearchRequest): Promise<B2BAdsResponse> {
-    const response = await this.client.post('/b2b/searchads', request);
+    const response = await this.client.post('/v1/ads/b2b-ads-search', request);
     return response.data;
   }
 
@@ -617,7 +611,7 @@ export class LeadMagicClient {
    * ```
    */
   async getB2BAdDetails(request: B2BAdDetailsRequest): Promise<B2BAdDetailsResponse> {
-    const response = await this.client.post('/b2b/ad-details', request);
+    const response = await this.client.post('/v1/ads/b2b-ads-details', request);
     return response.data;
   }
 
@@ -638,7 +632,7 @@ export class LeadMagicClient {
    * ```
    */
   async getJobCountries(): Promise<JobCountry[]> {
-    const response = await this.client.get('/job-country');
+    const response = await this.client.get('/v1/jobs/countries');
     return response.data;
   }
 
@@ -655,7 +649,7 @@ export class LeadMagicClient {
    * ```
    */
   async getJobTypes(): Promise<JobType[]> {
-    const response = await this.client.get('/job-types');
+    const response = await this.client.get('/v1/jobs/job-types');
     return response.data;
   }
 
@@ -683,6 +677,9 @@ export class LeadMagicClient {
    * ```
    */
   async request<T = unknown>(method: string, endpoint: string, data?: unknown): Promise<T> {
+    if (!endpoint.startsWith("/") || endpoint.startsWith("//") || endpoint.includes("\\")) {
+      throw new LeadMagicError(400, "INVALID_ENDPOINT", "Use a relative API path");
+    }
     const response = await this.client.request({
       method: method.toUpperCase(),
       url: endpoint,
@@ -704,7 +701,7 @@ export class LeadMagicClient {
     return {
       baseUrl: this.baseUrl,
       timeout: this.timeout,
-      apiKey: this.apiKey.substring(0, 8) + '...' // Mask API key for security
+      apiKey: '[REDACTED]'
     };
   }
 
