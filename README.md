@@ -55,3 +55,7 @@ Examples are fictional unless an explicit public source is cited. See [PUBLICATI
 - [Hosted MCP for Cursor](https://github.com/LeadMagic/leadmagic-cursor-plugin)
 - [Hosted MCP for Claude Code](https://github.com/LeadMagic/leadmagic-claude-plugin)
 - [REST API schema](https://github.com/LeadMagic/leadmagic-openapi)
+
+## License and contributions
+
+[MIT license](LICENSE) · [Third-party materials and contribution policy](LICENSE-NOTES.md). Reuse is allowed under the license; changes to this repository require maintainer review.
