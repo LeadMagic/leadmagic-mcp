@@ -380,7 +380,7 @@ export class LeadMagicClient {
    * @example
    * ```typescript
    * const result = await client.emailToProfile({
-   *   work_email: 'john@microsoft.com'
+   *   work_email: 'person@example.com'
    * });
    * console.log(`Profile URL: ${result.profile_url}`);
    * ```

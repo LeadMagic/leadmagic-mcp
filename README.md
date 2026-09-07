@@ -43,3 +43,7 @@ Tests use a mocked HTTP adapter and do not consume credits.
 Report vulnerabilities privately to [security@leadmagic.io](mailto:security@leadmagic.io). Use [GitHub issues](https://github.com/LeadMagic/leadmagic-mcp/issues) for sanitized bug reports. Never include keys, request headers, or customer data.
 
 MIT licensed.
+
+## Public examples and publication
+
+Examples are fictional unless an explicit public source is cited. See [PUBLICATION.md](PUBLICATION.md) for data, claims, attribution, and disclosure requirements.
