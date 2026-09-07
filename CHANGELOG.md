@@ -1,5 +1,15 @@
 # 📋 Changelog
 
+## Public-content privacy review — 2026-09-06
+
+Use synthetic contact examples, remove unnecessary identity and credential-like samples, and clarify publication, attribution, and claims requirements.
+
+
+## Unreleased — 2026-09-06
+
+Migrate enrichment calls to public versioned routes; reject failed HTTP responses and redirects; redact diagnostics; refresh vulnerable dependencies; add offline tests. Ad detail inputs use ad_url and employee lookup uses limit.
+
+
 All notable changes to LeadMagic MCP Server will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
@@ -8,7 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.2] - 2025-06-27
 
 ### ✨ Repository Polish & GitHub Setup
-- 📝 **GitHub Setup Guide**: Created detailed repository configuration instructions  
+- 📝 **GitHub Setup Guide**: Created detailed repository configuration instructions
 - 👥 **Code Owners**: Added CODEOWNERS file for team collaboration
 - 📦 **NPM Package**: Enhanced .npmignore for cleaner package distribution
 - 🏷️ **Enhanced Keywords**: Added more discoverable keywords for better SEO
@@ -18,7 +28,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 🔄 **Updated Dependencies**: Updated MCP SDK to v1.13.0 for latest features
 - 🛠️ **CI Improvements**: Updated to Node.js 20 and improved cross-platform testing
 
-### 📚 Documentation  
+### 📚 Documentation
 - 🎯 **Complete Setup Guide**: Step-by-step GitHub repository configuration
 - 🔖 **Topics & Tags**: Comprehensive list of repository topics
 - 🌐 **Social Preview**: Instructions for professional repository appearance
@@ -64,7 +74,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 #### Complete API Coverage
 - **All 19 LeadMagic API endpoints** fully implemented and tested
 - Email validation and finding capabilities
-- Profile and company search functionality  
+- Profile and company search functionality
 - Mobile number discovery
 - Job and employee intelligence
 - Company funding and financial data
@@ -126,7 +136,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 1. **Credits Management**
    - `get_credits` - Check API credit balance
 
-2. **Email Operations** 
+2. **Email Operations**
    - `validate_email` - Email deliverability validation
    - `find_email` - Find verified email addresses
    - `find_personal_email` - Personal email discovery
@@ -179,7 +189,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 | Platform | Installation Method | Status |
 |----------|-------------------|---------|
 | **macOS** | Interactive installer | ✅ Fully tested |
-| **Windows** | Interactive installer | ✅ Fully tested |  
+| **Windows** | Interactive installer | ✅ Fully tested |
 | **Linux** | Interactive installer | ✅ Fully tested |
 | **Claude Desktop** | Auto-config | ✅ Production ready |
 | **Cursor + Cline** | Auto-config | ✅ Production ready |
@@ -201,11 +211,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Planned Features
 - Additional authentication methods
 - Webhook support for real-time updates
-- Batch processing capabilities  
+- Batch processing capabilities
 - Advanced caching strategies
 - Performance monitoring and analytics
 - API rate limiting dashboard
 
 ---
 
-*For support, issues, or feature requests, visit [GitHub Issues](https://github.com/LeadMagic/leadmagic-mcp/issues)* 
+*For support, issues, or feature requests, visit [GitHub Issues](https://github.com/LeadMagic/leadmagic-mcp/issues)*

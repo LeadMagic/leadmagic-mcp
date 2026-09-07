@@ -1,7 +1,7 @@
 {
   "name": "leadmagic-mcp-server",
-  "version": "1.0.2",
-  "description": "🚀 Production-ready Model Context Protocol server for LeadMagic API - Complete B2B data enrichment suite with 19 powerful tools for email finding, profile enrichment, company intelligence, job data, and advertisement tracking. Zero-config setup for Claude, Cursor, Windsurf, Continue.dev, and all MCP clients.",
+  "version": "1.1.0",
+  "description": "Local stdio MCP server for the LeadMagic public enrichment API.",
   "type": "module",
   "keywords": [
     "mcp",
@@ -65,7 +65,7 @@
     "dev": "tsx src/index.ts",
     "start": "node dist/index.js",
     "watch": "tsx watch src/index.ts",
-    "test": "jest",
+    "test": "npm run build && node --test tests/*.test.mjs",
     "lint": "eslint src/**/*.ts",
     "lint:fix": "eslint src/**/*.ts --fix",
     "format": "prettier --write src/**/*.ts",
@@ -74,12 +74,12 @@
     "prepare": "npm run build",
     "prepublishOnly": "npm run validate",
     "inspector": "npx @modelcontextprotocol/inspector",
-    "validate": "npm run type-check && npm run build && echo '✅ Validation passed'",
+    "validate": "npm run type-check && npm run build && echo '\u2705 Validation passed'",
     "install-interactive": "tsx src/install.tsx",
     "quick-setup": "npm install -g leadmagic-mcp-server && leadmagic-mcp-install"
   },
   "dependencies": {
-    "@modelcontextprotocol/sdk": ">=1.0.0",
+    "@modelcontextprotocol/sdk": "^1.30.0",
     "@types/react": "19.1.8",
     "@types/react-dom": "19.1.6",
     "axios": "^1.6.0",
@@ -103,9 +103,9 @@
     "typescript": "^5.3.0"
   },
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=22"
   },
   "peerDependencies": {
-    "@modelcontextprotocol/sdk": ">=1.0.0"
+    "@modelcontextprotocol/sdk": "^1.30.0"
   }
 }
