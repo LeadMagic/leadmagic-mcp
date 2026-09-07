@@ -1,5 +1,7 @@
 # LeadMagic MCP Server: Local B2B Data Enrichment Tools
 
+<img src="https://raw.githubusercontent.com/LeadMagic/.github/main/profile/assets/leadmagic.svg" width="64" height="64" alt="LeadMagic logo">
+
 A TypeScript stdio MCP server that connects AI clients to a subset of the LeadMagic B2B enrichment API. It provides 19 tools for email discovery and validation, people and company enrichment, job research, advertising data, and credits.
 
 [LeadMagic B2B enrichment](https://leadmagic.io?utm_source=github&utm_medium=readme&utm_campaign=leadmagic-mcp&utm_content=readme-intro) · [MCP setup guide](https://leadmagic.io/docs/mcp/setup?utm_source=github&utm_medium=readme&utm_campaign=leadmagic-mcp&utm_content=readme-intro) · [Pricing and credits](https://leadmagic.io/pricing?utm_source=github&utm_medium=readme&utm_campaign=leadmagic-mcp&utm_content=readme-intro)
