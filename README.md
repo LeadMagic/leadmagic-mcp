@@ -1,8 +1,10 @@
-# LeadMagic local MCP server
+# LeadMagic MCP Server: Local B2B Data Enrichment Tools
 
 A TypeScript stdio MCP server that connects AI clients to a subset of the LeadMagic B2B enrichment API. It provides 19 tools for email discovery and validation, people and company enrichment, job research, advertising data, and credits.
 
-For the current hosted experience, use **[LeadMagic hosted MCP](https://leadmagic.io/docs/mcp/setup)** at `https://mcp.leadmagic.io/mcp` with OAuth. The [Cursor plugin](https://github.com/LeadMagic/leadmagic-cursor-plugin) and [Claude Code plugin](https://github.com/LeadMagic/leadmagic-claude-plugin) configure that service.
+[LeadMagic B2B enrichment](https://leadmagic.io?utm_source=github&utm_medium=readme&utm_campaign=leadmagic-mcp&utm_content=readme-intro) · [MCP setup guide](https://leadmagic.io/docs/mcp/setup?utm_source=github&utm_medium=readme&utm_campaign=leadmagic-mcp&utm_content=readme-intro) · [Pricing and credits](https://leadmagic.io/pricing?utm_source=github&utm_medium=readme&utm_campaign=leadmagic-mcp&utm_content=readme-intro)
+
+For the current hosted experience, use **[LeadMagic hosted MCP](https://leadmagic.io/docs/mcp/setup?utm_source=github&utm_medium=readme&utm_campaign=leadmagic-mcp&utm_content=readme-intro)** at `https://mcp.leadmagic.io/mcp` with OAuth. The [Cursor plugin](https://github.com/LeadMagic/leadmagic-cursor-plugin) and [Claude Code plugin](https://github.com/LeadMagic/leadmagic-claude-plugin) configure that service.
 
 ## Local installation
 
@@ -26,7 +28,7 @@ Configure your MCP client to launch `node` with the absolute path to `dist/index
 - Requests time out after 30 seconds by default. Paid requests are not automatically retried.
 - Email Finder returns validated work emails. Validate externally sourced emails separately.
 
-See [API documentation](https://leadmagic.io/docs) and [credit costs](https://leadmagic.io/docs/v1/credits). Tool and package changes should be tested with a small, authorized sample before production use.
+See [API documentation](https://leadmagic.io/docs?utm_source=github&utm_medium=readme&utm_campaign=leadmagic-mcp&utm_content=readme-api-behavior) and [credit costs](https://leadmagic.io/docs/v1/credits?utm_source=github&utm_medium=readme&utm_campaign=leadmagic-mcp&utm_content=readme-api-behavior). Tool and package changes should be tested with a small, authorized sample before production use.
 
 ## Development
 
@@ -47,3 +49,9 @@ MIT licensed.
 ## Public examples and publication
 
 Examples are fictional unless an explicit public source is cited. See [PUBLICATION.md](PUBLICATION.md) for data, claims, attribution, and disclosure requirements.
+
+## Related LeadMagic projects
+
+- [Hosted MCP for Cursor](https://github.com/LeadMagic/leadmagic-cursor-plugin)
+- [Hosted MCP for Claude Code](https://github.com/LeadMagic/leadmagic-claude-plugin)
+- [REST API schema](https://github.com/LeadMagic/leadmagic-openapi)
