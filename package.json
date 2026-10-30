@@ -88,7 +88,7 @@
     "ink-link": "4.1.0",
     "ink-spinner": "5.0.0",
     "react": "19.1.0",
-    "zod": "^3.22.4"
+    "zod": "^4.6.7"
   },
   "devDependencies": {
     "@types/jest": "^29.5.0",
